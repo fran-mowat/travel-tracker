@@ -12,6 +12,7 @@
         <p>Count the number of countries you have travelled to...</p>
 
         <p>Total countries: {{selectedCountries}} / {{countries.length}}</p>
+        <p>{{((selectedCountries / countries.length) * 100).toFixed(2)}}% of the world</p>
 
         <input ng-model="countryFilter" type="text" name="countrySearch" placeholder="Enter a country..." />
 
