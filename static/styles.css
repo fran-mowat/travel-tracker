@@ -84,4 +84,5 @@ input[type="text"]{
 
 input, label{
     font-size: 18px;
+    font-family: inherit;
 }
