@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Tracker</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div ng-app="travelTrackerApp" ng-controller="appController">
-        <h1>Travel Tracker</h1>
-        <p>Count the number of countries you have travelled to...</p>
+    <main ng-app="travelTrackerApp" ng-controller="appController">
+        <div>
+            <h1>Travel Tracker</h1>
+            <p class="description">Count the number of countries you have travelled to...</p>
 
-        <p>Total countries: {{selectedCountries}} / {{countries.length}}</p>
-        <p>{{((selectedCountries / countries.length) * 100).toFixed(2)}}% of the world</p>
-
-        <input ng-model="countryFilter" type="text" name="countrySearch" placeholder="Enter a country..." />
-        <input type="button" value="Clear Search" ng-click="clearSearch()">
+            <div class="stats">
+                <p>{{selectedCountries}} of {{countries.length}} countries visited</p>
+                <p>{{((selectedCountries / countries.length) * 100).toFixed(2)}}% of the world</p>
+            </div>
+            
+            <input ng-model="countryFilter" type="text" name="countrySearch" placeholder="Enter a country..." />
+            <input type="button" value="Clear Search" ng-click="clearSearch()">
+        </div>
 
         <form>
             <div ng-repeat="country in countries | filter: countryFilter">
@@ -24,7 +29,7 @@
             </div>
         </form>
         
-    </div>
+    </main>
 
     <script>
         let app = angular.module("travelTrackerApp", []);
@@ -48,7 +53,7 @@
                 const search = document.getElementsByName("countrySearch")[0];
                 search.value = "";
                 $scope.countryFilter = "";
-            }
+            };
         });
     </script>
 
