@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    font-family: system-ui, "Roboto";
+    box-sizing: border-box;
+}
+
+main{
+    height: 100vh;
+    overflow: hidden;
+    padding: 30px;
+}
+
+h1{
+    font-size: 32px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.description{
+    margin: 0;
+    font-size: 18px;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 35px 0;
+}
+
+.stats p{
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1.5px solid #444;
+    padding: 8px 16px;
+    margin: 0 10px;
+}
+
+@media (min-width: 400px) {
+    .stats{
+        flex-direction: row;
+    }
+}
+
+form{
+    overflow-y: scroll;
+    height: calc(100vh - 300px);
+    margin-top: 15px;
+}
+
+input{
+    padding: 5px 10px;
+}
+
+input, label{
+    font-size: 18px;
+}
