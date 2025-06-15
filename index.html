@@ -15,6 +15,7 @@
         <p>{{((selectedCountries / countries.length) * 100).toFixed(2)}}% of the world</p>
 
         <input ng-model="countryFilter" type="text" name="countrySearch" placeholder="Enter a country..." />
+        <input type="button" value="Clear Search" ng-click="clearSearch()">
 
         <form>
             <div ng-repeat="country in countries | filter: countryFilter">
@@ -42,6 +43,12 @@
                     $scope.selectedCountries++; 
                 }
             };
+
+            $scope.clearSearch = () => {
+                const search = document.getElementsByName("countrySearch")[0];
+                search.value = "";
+                $scope.countryFilter = "";
+            }
         });
     </script>
 
