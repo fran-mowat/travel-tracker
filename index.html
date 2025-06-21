@@ -53,10 +53,8 @@
 
                 if (currentSelection){
                     $scope.selectedCountryCount--; 
-                    $scope.selectedCountries = $scope.selectedCountries.filter(country => country != countryName);
                 } else {
                     $scope.selectedCountryCount++; 
-                    $scope.selectedCountries.push(countryName);
                 }
 
                 localStorage.setItem("selectedCountryCount", $scope.selectedCountryCount);
