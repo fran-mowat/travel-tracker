@@ -23,6 +23,7 @@
             <input type="button" value="Clear Search" ng-click="clearSearch()">
 
             <input type="button" value="View Selected" ng-click="viewSelected()">
+            <input type="button" value="View All" ng-click="viewAll()">
         </div>
 
         <form>
@@ -67,9 +68,16 @@
             };
 
             $scope.viewSelected = () => {
+                $scope.countryFilter = "";
+
                 const countrySelectionArray = Object.entries($scope.countrySelectionMap);
                 const filteredCountrySelection = countrySelectionArray.filter(([country, value]) => value === true);
                 $scope.countries = filteredCountrySelection.map(row => row[0]);
+            };
+
+            $scope.viewAll = () => {
+                $scope.countryFilter = "";
+                $scope.countries = [...$scope.allCountries];
             };
         });
     </script>
