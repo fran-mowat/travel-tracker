@@ -22,8 +22,7 @@
             <input ng-model="countryFilter" type="text" name="countrySearch" placeholder="Enter a country..." />
             <input type="button" value="Clear Search" ng-click="clearSearch()">
 
-            <input type="button" value="View Selected" ng-click="viewSelected()">
-            <input type="button" value="View All" ng-click="viewAll()">
+            <input type="button" value="{{toggleButtonValue}}" ng-click="toggleView()">
         </div>
 
         <form>
@@ -47,6 +46,9 @@
             let storedSelectedCountryCount = localStorage.getItem("selectedCountryCount");
             $scope.selectedCountryCount = storedSelectedCountryCount ? parseInt(storedSelectedCountryCount) : 0; 
 
+            $scope.displayAll = true;
+            $scope.toggleButtonValue = "View Selected";
+
             $scope.toggleSelection = (countryName) => {
                 let currentSelection = $scope.countrySelectionMap[countryName];
                 $scope.countrySelectionMap[countryName] = !currentSelection;
@@ -65,17 +67,29 @@
                 $scope.countryFilter = "";
             };
 
-            $scope.viewSelected = () => {
+            $scope.toggleView = () => {
                 $scope.countryFilter = "";
 
+                if ($scope.displayAll){
+                    $scope.viewSelected();
+                } else {
+                    $scope.viewAll();
+                }
+
+                $scope.displayAll = !$scope.displayAll;
+            };
+
+            $scope.viewSelected = () => {
                 const countrySelectionArray = Object.entries($scope.countrySelectionMap);
                 const filteredCountrySelection = countrySelectionArray.filter(([country, value]) => value === true);
                 $scope.countries = filteredCountrySelection.map(row => row[0]);
+
+                $scope.toggleButtonValue = "View All";
             };
 
             $scope.viewAll = () => {
-                $scope.countryFilter = "";
                 $scope.countries = [...$scope.allCountries];
+                $scope.toggleButtonValue = "View Selected";
             };
         });
     </script>
