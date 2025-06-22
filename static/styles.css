@@ -56,18 +56,17 @@ h1{
     }
 }
 
+header > div:not(.stats){
+    margin: 10px 0;
+}
+
 input{
     padding: 5px 10px;
 }
 
-input[type="text"]{
-    margin-bottom: 5px;
-}
-
-@media (min-width: 560px) {
-    input[type="text"]{
-        margin-bottom: 0;
-    }
+input[type="button"]{
+    width: 145px;
+    margin-right: 5px; 
 }
 
 input, label{
@@ -77,13 +76,13 @@ input, label{
 
 form{
     overflow-y: scroll;
-    height: calc(100vh - 400px);
+    height: calc(100vh - 407px);
     margin-top: 15px;
 }
 
 @media (min-width: 560px) {
     form{
-        height: calc(100vh - 300px);
+        height: calc(100vh - 338px);
     }
 }
 
