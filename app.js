@@ -26,10 +26,6 @@ app.controller("appController", function($scope) {
         localStorage.setItem("countrySelectionMap", JSON.stringify($scope.countrySelectionMap));
     };
 
-    $scope.clearSearch = () => {
-        $scope.countryFilter = "";
-    };
-
     $scope.toggleView = () => {
         $scope.countryFilter = "";
 
