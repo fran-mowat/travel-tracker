@@ -17,7 +17,7 @@ h1{
     text-align: center;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 560px) {
     h1{
         text-align: left;
     }
@@ -56,18 +56,6 @@ h1{
     }
 }
 
-form{
-    overflow-y: scroll;
-    height: calc(100vh - 400px);
-    margin-top: 15px;
-}
-
-@media (min-width: 400px) {
-    form{
-        height: calc(100vh - 300px);
-    }
-}
-
 input{
     padding: 5px 10px;
 }
@@ -85,4 +73,24 @@ input[type="text"]{
 input, label{
     font-size: 18px;
     font-family: inherit;
+}
+
+form{
+    overflow-y: scroll;
+    height: calc(100vh - 400px);
+    margin-top: 15px;
+}
+
+@media (min-width: 560px) {
+    form{
+        height: calc(100vh - 300px);
+    }
+}
+
+div:has(> input[ng-checked="true"]){
+    text-shadow: 0 0 15px grey;
+}
+
+input[type="checkbox"]{
+    accent-color: #3591dc;
 }
