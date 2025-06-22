@@ -1,57 +1,69 @@
 let app = angular.module("travelTrackerApp", []);
 app.controller("appController", function($scope) {
-$scope.countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
-$scope.allCountries = [...$scope.countries];
+    $scope.countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
+    $scope.allCountries = [...$scope.countries];
 
-let storedCountrySelectionMap = JSON.parse(localStorage.getItem("countrySelectionMap"));
-$scope.countrySelectionMap = storedCountrySelectionMap ? storedCountrySelectionMap : {"Afghanistan": false, "Albania": false, "Algeria": false, "Andorra": false, "Angola": false, "Antigua and Barbuda": false, "Argentina": false, "Armenia": false, "Australia": false, "Austria": false, "Azerbaijan": false, "Bahamas": false, "Bahrain": false, "Bangladesh": false, "Barbados": false, "Belarus": false, "Belgium": false, "Belize": false, "Benin": false, "Bhutan": false, "Bolivia": false, "Bosnia and Herzegovina": false, "Botswana": false, "Brazil": false, "Brunei": false, "Bulgaria": false, "Burkina Faso": false, "Burundi": false, "Cabo Verde": false, "Cambodia": false, "Cameroon": false, "Canada": false, "Central African Republic": false, "Chad": false, "Chile": false, "China": false, "Colombia": false, "Comoros": false, "Congo": false, "Costa Rica": false, "Côte d'Ivoire": false, "Croatia": false, "Cuba": false, "Cyprus": false, "Czech Republic": false, "Democratic Republic of the Congo": false, "Denmark": false, "Djibouti": false, "Dominica": false, "Dominican Republic": false, "Ecuador": false, "Egypt": false, "El Salvador": false, "Equatorial Guinea": false, "Eritrea": false, "Estonia": false, "Eswatini": false, "Ethiopia": false, "Fiji": false, "Finland": false, "France": false, "Gabon": false, "Gambia": false, "Georgia": false, "Germany": false, "Ghana": false, "Greece": false, "Grenada": false, "Guatemala": false, "Guinea": false, "Guinea-Bissau": false, "Guyana": false, "Haiti": false, "Holy See": false, "Honduras": false, "Hungary": false, "Iceland": false, "India": false, "Indonesia": false, "Iran": false, "Iraq": false, "Ireland": false, "Israel": false, "Italy": false, "Jamaica": false, "Japan": false, "Jordan": false, "Kazakhstan": false, "Kenya": false, "Kiribati": false, "Kuwait": false, "Kyrgyzstan": false, "Laos": false, "Latvia": false, "Lebanon": false, "Lesotho": false, "Liberia": false, "Libya": false, "Liechtenstein": false, "Lithuania": false, "Luxembourg": false, "Madagascar": false, "Malawi": false, "Malaysia": false, "Maldives": false, "Mali": false, "Malta": false, "Marshall Islands": false, "Mauritania": false, "Mauritius": false, "Mexico": false, "Micronesia": false, "Moldova": false, "Monaco": false, "Mongolia": false, "Montenegro": false, "Morocco": false, "Mozambique": false, "Myanmar": false, "Namibia": false, "Nauru": false, "Nepal": false, "Netherlands": false, "New Zealand": false, "Nicaragua": false, "Niger": false, "Nigeria": false, "North Korea": false, "North Macedonia": false, "Norway": false, "Oman": false, "Pakistan": false, "Palau": false, "Palestine State": false, "Panama": false, "Papua New Guinea": false, "Paraguay": false, "Peru": false, "Philippines": false, "Poland": false, "Portugal": false, "Qatar": false, "Romania": false, "Russia": false, "Rwanda": false, "Saint Kitts and Nevis": false, "Saint Lucia": false, "Saint Vincent and the Grenadines": false, "Samoa": false, "San Marino": false, "Sao Tome and Principe": false, "Saudi Arabia": false, "Senegal": false, "Serbia": false, "Seychelles": false, "Sierra Leone": false, "Singapore": false, "Slovakia": false, "Slovenia": false, "Solomon Islands": false, "Somalia": false, "South Africa": false, "South Korea": false, "South Sudan": false, "Spain": false, "Sri Lanka": false, "Sudan": false, "Suriname": false, "Sweden": false, "Switzerland": false, "Syria": false, "Tajikistan": false, "Tanzania": false, "Thailand": false, "Timor-Leste": false, "Togo": false, "Tonga": false, "Trinidad and Tobago": false, "Tunisia": false, "Turkey": false, "Turkmenistan": false, "Tuvalu": false, "Uganda": false, "Ukraine": false, "United Arab Emirates": false, "United Kingdom": false, "United States of America": false, "Uruguay": false, "Uzbekistan": false, "Vanuatu": false, "Venezuela": false, "Vietnam": false, "Yemen": false, "Zambia": false, "Zimbabwe": false };
+    let storedCountrySelectionMap = JSON.parse(localStorage.getItem("countrySelectionMap"));
+    $scope.countrySelectionMap = storedCountrySelectionMap ? storedCountrySelectionMap : {"Afghanistan": false, "Albania": false, "Algeria": false, "Andorra": false, "Angola": false, "Antigua and Barbuda": false, "Argentina": false, "Armenia": false, "Australia": false, "Austria": false, "Azerbaijan": false, "Bahamas": false, "Bahrain": false, "Bangladesh": false, "Barbados": false, "Belarus": false, "Belgium": false, "Belize": false, "Benin": false, "Bhutan": false, "Bolivia": false, "Bosnia and Herzegovina": false, "Botswana": false, "Brazil": false, "Brunei": false, "Bulgaria": false, "Burkina Faso": false, "Burundi": false, "Cabo Verde": false, "Cambodia": false, "Cameroon": false, "Canada": false, "Central African Republic": false, "Chad": false, "Chile": false, "China": false, "Colombia": false, "Comoros": false, "Congo": false, "Costa Rica": false, "Côte d'Ivoire": false, "Croatia": false, "Cuba": false, "Cyprus": false, "Czech Republic": false, "Democratic Republic of the Congo": false, "Denmark": false, "Djibouti": false, "Dominica": false, "Dominican Republic": false, "Ecuador": false, "Egypt": false, "El Salvador": false, "Equatorial Guinea": false, "Eritrea": false, "Estonia": false, "Eswatini": false, "Ethiopia": false, "Fiji": false, "Finland": false, "France": false, "Gabon": false, "Gambia": false, "Georgia": false, "Germany": false, "Ghana": false, "Greece": false, "Grenada": false, "Guatemala": false, "Guinea": false, "Guinea-Bissau": false, "Guyana": false, "Haiti": false, "Holy See": false, "Honduras": false, "Hungary": false, "Iceland": false, "India": false, "Indonesia": false, "Iran": false, "Iraq": false, "Ireland": false, "Israel": false, "Italy": false, "Jamaica": false, "Japan": false, "Jordan": false, "Kazakhstan": false, "Kenya": false, "Kiribati": false, "Kuwait": false, "Kyrgyzstan": false, "Laos": false, "Latvia": false, "Lebanon": false, "Lesotho": false, "Liberia": false, "Libya": false, "Liechtenstein": false, "Lithuania": false, "Luxembourg": false, "Madagascar": false, "Malawi": false, "Malaysia": false, "Maldives": false, "Mali": false, "Malta": false, "Marshall Islands": false, "Mauritania": false, "Mauritius": false, "Mexico": false, "Micronesia": false, "Moldova": false, "Monaco": false, "Mongolia": false, "Montenegro": false, "Morocco": false, "Mozambique": false, "Myanmar": false, "Namibia": false, "Nauru": false, "Nepal": false, "Netherlands": false, "New Zealand": false, "Nicaragua": false, "Niger": false, "Nigeria": false, "North Korea": false, "North Macedonia": false, "Norway": false, "Oman": false, "Pakistan": false, "Palau": false, "Palestine State": false, "Panama": false, "Papua New Guinea": false, "Paraguay": false, "Peru": false, "Philippines": false, "Poland": false, "Portugal": false, "Qatar": false, "Romania": false, "Russia": false, "Rwanda": false, "Saint Kitts and Nevis": false, "Saint Lucia": false, "Saint Vincent and the Grenadines": false, "Samoa": false, "San Marino": false, "Sao Tome and Principe": false, "Saudi Arabia": false, "Senegal": false, "Serbia": false, "Seychelles": false, "Sierra Leone": false, "Singapore": false, "Slovakia": false, "Slovenia": false, "Solomon Islands": false, "Somalia": false, "South Africa": false, "South Korea": false, "South Sudan": false, "Spain": false, "Sri Lanka": false, "Sudan": false, "Suriname": false, "Sweden": false, "Switzerland": false, "Syria": false, "Tajikistan": false, "Tanzania": false, "Thailand": false, "Timor-Leste": false, "Togo": false, "Tonga": false, "Trinidad and Tobago": false, "Tunisia": false, "Turkey": false, "Turkmenistan": false, "Tuvalu": false, "Uganda": false, "Ukraine": false, "United Arab Emirates": false, "United Kingdom": false, "United States of America": false, "Uruguay": false, "Uzbekistan": false, "Vanuatu": false, "Venezuela": false, "Vietnam": false, "Yemen": false, "Zambia": false, "Zimbabwe": false };
 
-let storedSelectedCountryCount = localStorage.getItem("selectedCountryCount");
-$scope.selectedCountryCount = storedSelectedCountryCount ? parseInt(storedSelectedCountryCount) : 0; 
+    let storedSelectedCountryCount = localStorage.getItem("selectedCountryCount");
+    $scope.selectedCountryCount = storedSelectedCountryCount ? parseInt(storedSelectedCountryCount) : 0; 
 
-$scope.displayAll = true;
-$scope.toggleButtonValue = "View Selected";
-
-$scope.toggleSelection = (countryName) => {
-    let currentSelection = $scope.countrySelectionMap[countryName];
-    $scope.countrySelectionMap[countryName] = !currentSelection;
-
-    if (currentSelection){
-        $scope.selectedCountryCount--; 
-    } else {
-        $scope.selectedCountryCount++; 
-    }
-
-    localStorage.setItem("selectedCountryCount", $scope.selectedCountryCount);
-    localStorage.setItem("countrySelectionMap", JSON.stringify($scope.countrySelectionMap));
-};
-
-$scope.clearSearch = () => {
-    $scope.countryFilter = "";
-};
-
-$scope.toggleView = () => {
-    $scope.countryFilter = "";
-
-    if ($scope.displayAll){
-        $scope.viewSelected();
-    } else {
-        $scope.viewAll();
-    }
-
-    $scope.displayAll = !$scope.displayAll;
-};
-
-$scope.viewSelected = () => {
-    const countrySelectionArray = Object.entries($scope.countrySelectionMap);
-    const filteredCountrySelection = countrySelectionArray.filter(([country, value]) => value === true);
-    $scope.countries = filteredCountrySelection.map(row => row[0]);
-
-    $scope.toggleButtonValue = "View All";
-};
-
-$scope.viewAll = () => {
-    $scope.countries = [...$scope.allCountries];
+    $scope.displayAll = true;
     $scope.toggleButtonValue = "View Selected";
-};
+
+    $scope.toggleSelection = (countryName) => {
+        let currentSelection = $scope.countrySelectionMap[countryName];
+        $scope.countrySelectionMap[countryName] = !currentSelection;
+
+        if (currentSelection){
+            $scope.selectedCountryCount--; 
+        } else {
+            $scope.selectedCountryCount++; 
+        }
+
+        localStorage.setItem("selectedCountryCount", $scope.selectedCountryCount);
+        localStorage.setItem("countrySelectionMap", JSON.stringify($scope.countrySelectionMap));
+    };
+
+    $scope.clearSearch = () => {
+        $scope.countryFilter = "";
+    };
+
+    $scope.toggleView = () => {
+        $scope.countryFilter = "";
+
+        if ($scope.displayAll){
+            $scope.viewSelected();
+        } else {
+            $scope.viewAll();
+        }
+
+        $scope.displayAll = !$scope.displayAll;
+    };
+
+    $scope.viewSelected = () => {
+        const countrySelectionArray = Object.entries($scope.countrySelectionMap);
+        const filteredCountrySelection = countrySelectionArray.filter(([country, value]) => value === true);
+        $scope.countries = filteredCountrySelection.map(row => row[0]);
+
+        $scope.toggleButtonValue = "View All";
+    };
+
+    $scope.viewAll = () => {
+        $scope.countries = [...$scope.allCountries];
+        $scope.toggleButtonValue = "View Selected";
+    };
+
+    $scope.clearAll = () => {
+        $scope.countryFilter = "";
+        $scope.countrySelectionMap = {"Afghanistan": false, "Albania": false, "Algeria": false, "Andorra": false, "Angola": false, "Antigua and Barbuda": false, "Argentina": false, "Armenia": false, "Australia": false, "Austria": false, "Azerbaijan": false, "Bahamas": false, "Bahrain": false, "Bangladesh": false, "Barbados": false, "Belarus": false, "Belgium": false, "Belize": false, "Benin": false, "Bhutan": false, "Bolivia": false, "Bosnia and Herzegovina": false, "Botswana": false, "Brazil": false, "Brunei": false, "Bulgaria": false, "Burkina Faso": false, "Burundi": false, "Cabo Verde": false, "Cambodia": false, "Cameroon": false, "Canada": false, "Central African Republic": false, "Chad": false, "Chile": false, "China": false, "Colombia": false, "Comoros": false, "Congo": false, "Costa Rica": false, "Côte d'Ivoire": false, "Croatia": false, "Cuba": false, "Cyprus": false, "Czech Republic": false, "Democratic Republic of the Congo": false, "Denmark": false, "Djibouti": false, "Dominica": false, "Dominican Republic": false, "Ecuador": false, "Egypt": false, "El Salvador": false, "Equatorial Guinea": false, "Eritrea": false, "Estonia": false, "Eswatini": false, "Ethiopia": false, "Fiji": false, "Finland": false, "France": false, "Gabon": false, "Gambia": false, "Georgia": false, "Germany": false, "Ghana": false, "Greece": false, "Grenada": false, "Guatemala": false, "Guinea": false, "Guinea-Bissau": false, "Guyana": false, "Haiti": false, "Holy See": false, "Honduras": false, "Hungary": false, "Iceland": false, "India": false, "Indonesia": false, "Iran": false, "Iraq": false, "Ireland": false, "Israel": false, "Italy": false, "Jamaica": false, "Japan": false, "Jordan": false, "Kazakhstan": false, "Kenya": false, "Kiribati": false, "Kuwait": false, "Kyrgyzstan": false, "Laos": false, "Latvia": false, "Lebanon": false, "Lesotho": false, "Liberia": false, "Libya": false, "Liechtenstein": false, "Lithuania": false, "Luxembourg": false, "Madagascar": false, "Malawi": false, "Malaysia": false, "Maldives": false, "Mali": false, "Malta": false, "Marshall Islands": false, "Mauritania": false, "Mauritius": false, "Mexico": false, "Micronesia": false, "Moldova": false, "Monaco": false, "Mongolia": false, "Montenegro": false, "Morocco": false, "Mozambique": false, "Myanmar": false, "Namibia": false, "Nauru": false, "Nepal": false, "Netherlands": false, "New Zealand": false, "Nicaragua": false, "Niger": false, "Nigeria": false, "North Korea": false, "North Macedonia": false, "Norway": false, "Oman": false, "Pakistan": false, "Palau": false, "Palestine State": false, "Panama": false, "Papua New Guinea": false, "Paraguay": false, "Peru": false, "Philippines": false, "Poland": false, "Portugal": false, "Qatar": false, "Romania": false, "Russia": false, "Rwanda": false, "Saint Kitts and Nevis": false, "Saint Lucia": false, "Saint Vincent and the Grenadines": false, "Samoa": false, "San Marino": false, "Sao Tome and Principe": false, "Saudi Arabia": false, "Senegal": false, "Serbia": false, "Seychelles": false, "Sierra Leone": false, "Singapore": false, "Slovakia": false, "Slovenia": false, "Solomon Islands": false, "Somalia": false, "South Africa": false, "South Korea": false, "South Sudan": false, "Spain": false, "Sri Lanka": false, "Sudan": false, "Suriname": false, "Sweden": false, "Switzerland": false, "Syria": false, "Tajikistan": false, "Tanzania": false, "Thailand": false, "Timor-Leste": false, "Togo": false, "Tonga": false, "Trinidad and Tobago": false, "Tunisia": false, "Turkey": false, "Turkmenistan": false, "Tuvalu": false, "Uganda": false, "Ukraine": false, "United Arab Emirates": false, "United Kingdom": false, "United States of America": false, "Uruguay": false, "Uzbekistan": false, "Vanuatu": false, "Venezuela": false, "Vietnam": false, "Yemen": false, "Zambia": false, "Zimbabwe": false };
+        $scope.selectedCountryCount = 0; 
+
+        $scope.displayAll = false; 
+        $scope.toggleView(); 
+
+        localStorage.setItem("selectedCountryCount", $scope.selectedCountryCount);
+        localStorage.setItem("countrySelectionMap", JSON.stringify($scope.countrySelectionMap));
+    };
 });
