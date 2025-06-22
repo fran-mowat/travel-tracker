@@ -60,6 +60,17 @@ header > div:not(.stats){
     margin: 10px 0;
 }
 
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+img{
+    width: 30px;
+}
+
 input{
     padding: 5px 10px;
 }
